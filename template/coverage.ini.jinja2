@@ -1,0 +1,13 @@
+[coverage:paths]
+source = [[ package_name ]]
+
+[coverage:run]
+branch = true
+source = [[ package_name ]]
+
+[coverage:report]
+precision = 2
+omit = tests/* [[ package_name ]]/__init__.py [[ package_name ]]/__main__.py
+
+[coverage:html]
+directory = build/coverage

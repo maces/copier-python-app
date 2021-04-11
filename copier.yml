@@ -1,0 +1,33 @@
+# CONFIGURATION -------------------------
+_subdirectory: template
+_templates_suffix: .jinja2
+
+# PROMPT --------------------------------
+python_version:
+  help: Python version
+  choices:
+    v3_8_9: "3.8.9"
+    v3_9_4: "3.9.4"
+  default: "3.9.4"
+
+project_name:
+  type: str
+  help: Project name
+
+package_name:
+  type: str
+  help: Python package name
+  default: "[[ project_name|lower|replace('-', '_')|replace(' ', '_') ]]"
+
+project_description:
+  type: str
+  help: Project description
+
+author_name:
+  type: str
+  help: Your name
+
+author_email:
+  type: str
+  help: Your email
+  default: "noreply"

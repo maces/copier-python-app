@@ -1,0 +1,7 @@
+from [[ package_name ]].app import main
+
+
+def test_main():
+    response = main()
+    assert type(response) == str
+    assert response == "Hello World!"
