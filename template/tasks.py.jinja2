@@ -52,7 +52,7 @@ def build(c):
     """
     p = Path("build")
     p.mkdir(parents=True, exist_ok=True)
-    c.run(f"poetry export -f requirements.txt --output {p / 'requirements.txt'}")
+    c.run(f"poetry export -f requirements.txt --output {p / 'requirements.txt'} --without-hashes")
     c.run("docker build --tag [[ package_name ]]-app .")
 
 
@@ -61,7 +61,7 @@ def run(c):
     """
     RUN the docker image
     """
-    c.run("docker run -it --rm --name [[ package_name ]]-app [[ package_name ]]-app /bin/bash", pty=True)
+    c.run("docker run -it --rm --env-file .env --name [[ package_name ]]-app [[ package_name ]]-app /bin/bash", pty=True)
 
 
 @task

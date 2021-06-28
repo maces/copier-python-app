@@ -2,7 +2,7 @@
 
 ## Usage
 
-1. Create the new project based on the template: `copier <src> <project_dir>`
+1. Create the new project based on the template: `copier https://github.com/maces/copier-python-app.git <project_dir>`
 2. Answer the questions
 3. `cd <project_dir>`
 4. Make sure the correct Python version is used or `pyenv` is correctly installed:

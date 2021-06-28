@@ -1,17 +1,13 @@
-FROM python:[[ python_version ]]-slim
+FROM python:[[ python_version ]]-slim as build-image
+ENV PYTHONUNBUFFERED 1
 
 RUN mkdir /[[package_name]]
 
-
 COPY build/requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
-
-
-# RUN pip3 install micropipenv[toml]
-# COPY pyproject.toml /pyproject.toml
-# COPY poetry.lock /poetry.lock
-# RUN micropipenv install
+RUN pip install --no-cache-dir -r /requirements.txt
 
 WORKDIR /[[package_name]]
 # EXPOSE <port>
 COPY [[package_name]] /[[package_name]]
+
+ENTRYPOINT [ "python", "app.py" ]
